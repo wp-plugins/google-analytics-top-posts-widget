@@ -1,0 +1,59 @@
+=== Plugin Name ===
+Google Analytics Top Posts Widget
+
+Contributors: jtsternberg
+Plugin Name:  Google Analytics Top Posts Widget
+Plugin URI: http://j.ustin.co/yWTtmy
+Tags: google analytics, google, top posts, top content, display rank, page rank, page views, widget, sidebar, sidebar widget, Google Analytics Dashboard, shortcode
+Author: Jtsternberg
+Author URI: http://about.me/jtsternberg
+Donate link: http://j.ustin.co/rYL89n
+Requires at least: 3.0
+Tested up to: 3.3.1
+Stable tag: 1.0
+Version: 1.0
+
+Widget and shortcode to display top content according to Google Analytics. ("Google Analytics Dashboard" plugin required)
+
+== Description ==
+
+Adds a widget that allows you to display top pages/posts in your sidebar based on google analytics data. Requires a Google Analytics account, and the plugin, ["Google Analytics Dashboard"](http://wordpress.org/extend/plugins/google-analytics-dashboard/).
+Also includes a shortcode to display the top content in your posts and pages.
+Shortcode with options supported: `[google_top_content pageviews="5" number="10" showhome="no" yy="2012" mm="01" dd="22"]`
+
+Shortcode Attributes Definitions:
+* Pageviews: Show pages with at least __ number of page views
+* Number: Number of pages to show in the list
+* Showhome: Will remove home page from list: (usually "yoursite.com" is the highest viewed page)
+* yy, mm, dd: Selects the earliest date you would like analytics to pull from
+
+== Installation ==
+
+1. Upload the `google-analytics-top-posts-widget` directory to the `/wp-content/plugins/` directory.
+2. Activate the plugin through the 'Plugins' menu in WordPress.
+3. Plugin will prompt you to install the "Google Analytics Dashboard" plugin. Install and activate it.
+4. Use the "Google Analytics Dashboard" plugin's settings page to login to your google analytics account.
+5. On the widgets page, drag the "Google Analytics Top Posts" widget to the desired sidebar.
+6. Update the widget settings and save.
+
+== Frequently Asked Questions ==
+
+= ?? =
+If you run into a problem or have a question, contact me ([contact form](http://j.ustin.co/scbo43) or [@jtsternberg on twitter](http://j.ustin.co/wUfBD3)). I'll add them here.
+
+
+== Screenshots ==
+
+1. Widget options.
+2. Widget display (in an ordered list).
+
+== Changelog ==
+
+= 1.0 =
+* Launch.
+
+
+== Upgrade Notice ==
+
+= 1.0 =
+* Launch
