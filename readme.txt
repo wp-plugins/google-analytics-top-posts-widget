@@ -32,6 +32,8 @@ Also includes a shortcode to display the top content in your posts and pages.
 * YShowhome: Will remove home page from list: (usually "yoursite.com" is the highest viewed page)
 * yy, mm, dd: Selects the earliest date you would like analytics to pull from
 
+All of the widget options are exactly that.. optional. If you don't include them it will pick some defaults.
+
 == Installation ==
 
 1. Upload the `google-analytics-top-posts-widget` directory to the `/wp-content/plugins/` directory.
