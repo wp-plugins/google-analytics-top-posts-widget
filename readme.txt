@@ -29,7 +29,7 @@ Also includes a shortcode to display the top content in your posts and pages.
 
 * Pageviews: Show pages with at least __ number of page views
 * Number: Number of pages to show in the list
-* YShowhome: Will remove home page from list: (usually "yoursite.com" is the highest viewed page)
+* Showhome: Will remove home page from list: (usually "yoursite.com" is the highest viewed page)
 * yy, mm, dd: Selects the earliest date you would like analytics to pull from
 
 All of the widget options are exactly that.. optional. If you don't include them it will pick some defaults.
