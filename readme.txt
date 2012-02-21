@@ -1,8 +1,8 @@
 === Plugin Name ===
-Google Analytics Top Posts Widget
+Google Analytics Top Content Widget
 
 Contributors: jtsternberg
-Plugin Name:  Google Analytics Top Posts Widget
+Plugin Name:  Google Analytics Top Content Widget
 Plugin URI: http://j.ustin.co/yWTtmy
 Tags: google analytics, google, top posts, top content, display rank, page rank, page views, widget, sidebar, sidebar widget, Google Analytics Dashboard, shortcode
 Author: Jtsternberg
