@@ -1,8 +1,8 @@
 === Plugin Name ===
-Google Analytics Top Posts Widget
+Google Analytics Top Content Widget
 
 Contributors: jtsternberg
-Plugin Name:  Google Analytics Top Posts Widget
+Plugin Name:  Google Analytics Top Content Widget
 Plugin URI: http://j.ustin.co/yWTtmy
 Tags: google analytics, google, top posts, top content, display rank, page rank, page views, widget, sidebar, sidebar widget, Google Analytics Dashboard, shortcode
 Author: Jtsternberg
@@ -18,13 +18,17 @@ Widget and shortcode to display top content according to Google Analytics. ("Goo
 == Description ==
 
 Adds a widget that allows you to display top pages/posts in your sidebar based on google analytics data. Requires a Google Analytics account, and the plugin, ["Google Analytics Dashboard"](http://wordpress.org/extend/plugins/google-analytics-dashboard/).
+
 Also includes a shortcode to display the top content in your posts and pages.
-Shortcode with options supported: `[google_top_content pageviews="5" number="10" showhome="no" yy="2012" mm="01" dd="22"]`
+Shortcode with options supported: 
+
+`[google_top_content pageviews="5" number="10" showhome="no" yy="2012" mm="01" dd="22"]`
 
 Shortcode Attributes Definitions:
+
 * Pageviews: Show pages with at least __ number of page views
 * Number: Number of pages to show in the list
-* Showhome: Will remove home page from list: (usually "yoursite.com" is the highest viewed page)
+* YShowhome: Will remove home page from list: (usually "yoursite.com" is the highest viewed page)
 * yy, mm, dd: Selects the earliest date you would like analytics to pull from
 
 == Installation ==
