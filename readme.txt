@@ -20,11 +20,12 @@ Widget and shortcode to display top content according to Google Analytics. ("Goo
 Adds a widget that allows you to display top pages/posts in your sidebar based on google analytics data. Requires a Google Analytics account, and the plugin, ["Google Analytics Dashboard"](http://wordpress.org/extend/plugins/google-analytics-dashboard/).
 
 Also includes a shortcode to display the top content in your posts and pages.
-Shortcode with options supported: 
+
+= Shortcode with options supported: =
 
 `[google_top_content pageviews="5" number="10" showhome="no" yy="2012" mm="01" dd="22"]`
 
-Shortcode Attributes Definitions:
+= Shortcode attributes definitions: =
 
 * Pageviews: Show pages with at least __ number of page views
 * Number: Number of pages to show in the list
