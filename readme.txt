@@ -10,8 +10,8 @@ Author URI: http://about.me/jtsternberg
 Donate link: http://j.ustin.co/rYL89n
 Requires at least: 3.0
 Tested up to: 3.3.1
-Stable tag: 1.0
-Version: 1.0
+Stable tag: 1.1
+Version: 1.1
 
 Widget and shortcode to display top content according to Google Analytics. ("Google Analytics Dashboard" plugin required)
 
@@ -23,14 +23,14 @@ Also includes a shortcode to display the top content in your posts and pages.
 
 = Shortcode with options supported: =
 
-`[google_top_content pageviews="5" number="10" showhome="no" yy="2012" mm="01" dd="22"]`
+`[google_top_content pageviews="5" number="10" showhome="no" time="1-month"]`
 
 = Shortcode attributes definitions: =
 
 * Pageviews: Show pages with at least __ number of page views
 * Number: Number of pages to show in the list
 * Showhome: Will remove home page from list: (usually "yoursite.com" is the highest viewed page)
-* yy, mm, dd: Selects the earliest date you would like analytics to pull from
+* Time: Selects how far back you would like analytics to pull from
 
 All of the widget options are exactly that.. optional. If you don't include them it will pick some defaults.
 
@@ -56,11 +56,17 @@ If you run into a problem or have a question, contact me ([contact form](http://
 
 == Changelog ==
 
+= 1.1 =
+* Add a pages filter for developers, remove site title from page title, change date picker to use relative dates.
+
 = 1.0 =
 * Launch.
 
 
 == Upgrade Notice ==
 
+= 1.1 =
+Add a pages filter for developers, remove site title from page title, change date picker to use relative dates.
+
 = 1.0 =
-* Launch
+Launch
