@@ -174,7 +174,7 @@ class dsgnwrks_google_top_posts_widgets extends WP_Widget {
         $title = apply_filters( 'widget_title', $instance['title'] );
         if ( !empty( $title ) ) { echo $before_title . $title . $after_title; };
 
-        echo dsgnwrks_gtc_top_content_shortcode( $instance );
+        echo dsgnwrks_gtc_top_content_shortcode( $instance, 'widget' );
 
         echo $after_widget;
 
@@ -202,7 +202,7 @@ function dsgnwrks_change_link_url( $complete_link_url ) {
 
 // Writing Prompts Calendar Shortcode
 add_shortcode( 'google_top_content', 'dsgnwrks_gtc_top_content_shortcode' );
-function dsgnwrks_gtc_top_content_shortcode( $atts ) {
+function dsgnwrks_gtc_top_content_shortcode( $atts, $context ) {
 
   $defaults = array(
     'pageviews' => 20,
@@ -230,7 +230,8 @@ function dsgnwrks_gtc_top_content_shortcode( $atts ) {
           array( '-ga:pageviews' ),
           array( 'ga:pageviews>' . $atts['pageviews'] )
         );
-      $pages = apply_filters( 'gtc_pages_filter', $pages );
+      $atts['context'] = ( $context ) ? $context : 'shortcode';
+      $pages = apply_filters( 'gtc_pages_filter', $pages, $atts );
 
       $list = '';
       if ( $pages ) {
