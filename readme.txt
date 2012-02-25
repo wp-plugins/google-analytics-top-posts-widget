@@ -10,14 +10,16 @@ Author URI: http://about.me/jtsternberg
 Donate link: http://j.ustin.co/rYL89n
 Requires at least: 3.0
 Tested up to: 3.3.1
-Stable tag: 1.1
-Version: 1.1
+Stable tag: 1.2
+Version: 1.2
 
 Widget and shortcode to display top content according to Google Analytics. ("Google Analytics Dashboard" plugin required)
 
 == Description ==
 
-Adds a widget that allows you to display top pages/posts in your sidebar based on google analytics data. Requires a Google Analytics account, and the plugin, ["Google Analytics Dashboard"](http://wordpress.org/extend/plugins/google-analytics-dashboard/) (which will be auto-installed by this plugin, thanks to [@jthomasgriffin](http://twitter.com/jthomasgriffin)'s awesome [TGM Plugin Activation Class](j.ustin.co/yZPKXw)).
+Adds a widget that allows you to display top pages/posts in your sidebar based on google analytics data.
+
+Requires a Google Analytics account, and the plugin, ["Google Analytics Dashboard"](http://wordpress.org/extend/plugins/google-analytics-dashboard/) (which will be auto-installed by this plugin, thanks to [@jthomasgriffin](http://twitter.com/jthomasgriffin)'s awesome [TGM Plugin Activation Class](j.ustin.co/yZPKXw)).
 
 Also includes a shortcode to display the top content in your posts and pages.
 
@@ -33,6 +35,11 @@ Also includes a shortcode to display the top content in your posts and pages.
 * Time: Selects how far back you would like analytics to pull from
 
 All of the widget options are exactly that.. optional. If you don't include them it will pick some defaults.
+
+= Plugin Features: =
+
+* Plugin uses WordPress transients to cache the Google results so you're not running the update from Google every time. cache updates every 24 hours.
+* Developer Friendly. Many filters built in to allow you to filter the results to dispay how you want.  One example of that would be to remove your Site's title from the results.
 
 == Installation ==
 
@@ -56,6 +63,9 @@ If you run into a problem or have a question, contact me ([contact form](http://
 
 == Changelog ==
 
+= 1.2 =
+* Increased page-speed with use of transients caching. Also added a few more developer friendly filters.
+
 = 1.1 =
 * Add a pages filter for developers, remove site title from page title, change date picker to use relative dates.
 
@@ -64,6 +74,9 @@ If you run into a problem or have a question, contact me ([contact form](http://
 
 
 == Upgrade Notice ==
+
+= 1.2 =
+Increased page-speed with use of transients caching. Also added a few more developer friendly filters.
 
 = 1.1 =
 Add a pages filter for developers, remove site title from page title, change date picker to use relative dates.
