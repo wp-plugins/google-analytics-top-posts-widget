@@ -232,21 +232,25 @@ function dsgnwrks_gtc_top_content_shortcode( $atts ) {
         );
       $pages = apply_filters( 'gtc_pages_filter', $pages );
 
-      $list = '<ol>';
-      $counter = 1;
-      foreach( $pages as $page ) {
-        $url = $page['value'];
-        if ( $url == '/' && $atts['showhome'] != '0' ) {
-          continue;
-        }
-        $url = apply_filters( 'gtc_page_url', $url );
-        $title = apply_filters( 'gtc_page_title', $page['children']['value'] );
+      $list = '';
+      if ( $pages ) {
+        $list .= '<ol>';
+        $counter = 1;
+        foreach( $pages as $page ) {
+          $url = $page['value'];
+          if ( $url == '/' && $atts['showhome'] != '0' ) {
+            continue;
+          }
+          $url = apply_filters( 'gtc_page_url', $url );
+          $title = apply_filters( 'gtc_page_title', $page['children']['value'] );
 
-        $list .= '<li><a href="' . $url . '">' . $title . '</a></li>';
-        $counter++;
-        if ( $counter > $atts['number'] ) break;
+          $list .= '<li><a href="' . $url . '">' . $title . '</a></li>';
+          $counter++;
+          if ( $counter > $atts['number'] ) break;
+        }
+        $list .= '</ol>';
+
       }
-      $list .= '</ol>';
 
   } elseif ( isset( $gad_auth_token ) && $gad_auth_token != '' && !class_exists( 'GADWidgetData' ) ) {
       $list = dsgnwrks_gtc_widget_message_one();
