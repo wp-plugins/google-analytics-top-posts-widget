@@ -10,8 +10,8 @@ Author URI: http://about.me/jtsternberg
 Donate link: http://j.ustin.co/rYL89n
 Requires at least: 3.0
 Tested up to: 3.3.1
-Stable tag: 1.2
-Version: 1.2
+Stable tag: 1.3
+Version: 1.3
 
 Widget and shortcode to display top content according to Google Analytics. ("Google Analytics Dashboard" plugin required)
 
@@ -63,6 +63,9 @@ If you run into a problem or have a question, contact me ([contact form](http://
 
 == Changelog ==
 
+= 1.3 =
+* Added more widget options to modify the list output. Added field to enter repeating elements in the titles to remove from the listings. Also, now limit or filter by post-type, by category, or by post/page ID.
+
 = 1.2 =
 * Increased page-speed with use of transients caching. Also added a few more developer friendly filters.
 
@@ -74,6 +77,9 @@ If you run into a problem or have a question, contact me ([contact form](http://
 
 
 == Upgrade Notice ==
+
+= 1.3 =
+Added more widget options to modify the list output. Added field to enter repeating elements in the titles to remove from the listings. Also, now limit or filter by post-type, by category, or by post/page ID.
 
 = 1.2 =
 Increased page-speed with use of transients caching. Also added a few more developer friendly filters.
