@@ -19,13 +19,13 @@ Widget and shortcode to display top content according to Google Analytics. ("Goo
 
 Adds a widget that allows you to display top pages/posts in your sidebar based on google analytics data.
 
-Requires a Google Analytics account, and the plugin, ["Google Analytics Dashboard"](http://wordpress.org/extend/plugins/google-analytics-dashboard/) (which will be auto-installed by this plugin, thanks to [@jthomasgriffin](http://twitter.com/jthomasgriffin)'s awesome [TGM Plugin Activation Class](j.ustin.co/yZPKXw)).
+Requires a Google Analytics account, and the plugin, ["Google Analytics Dashboard"](http://wordpress.org/extend/plugins/google-analytics-dashboard/) (which will be auto-installed by this plugin, thanks to [@jthomasgriffin](http://twitter.com/jthomasgriffin)'s awesome [TGM Plugin Activation Class](http://j.ustin.co/yZPKXw)).
 
 Also includes a shortcode to display the top content in your posts and pages.
 
 = Shortcode with options supported: =
 
-`[google_top_content pageviews="5" number="10" showhome="no" time="1-month"]`
+`[google_top_content pageviews=5 number=10 showhome=no time=1-month]`
 
 = Shortcode attributes definitions: =
 
@@ -34,7 +34,7 @@ Also includes a shortcode to display the top content in your posts and pages.
 * Showhome: Will remove home page from list: (usually "yoursite.com" is the highest viewed page)
 * Time: Selects how far back you would like analytics to pull from
 
-**Since 1.3:**
+Since 1.3:
 
 * titleremove: Remove site title from listings. (Unless your site doesn't output the site titles, then you will need to add this in order for the filter settings below to work.)
 * contentfilter: Limit listings to a particular post-type (post, page, etc)
