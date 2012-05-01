@@ -12,6 +12,8 @@ Requires at least: 3.0
 Tested up to: 3.3.1
 Stable tag: 1.3
 Version: 1.3
+License: GPLv2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
 Widget and shortcode to display top content according to Google Analytics. ("Google Analytics Dashboard" plugin required)
 
