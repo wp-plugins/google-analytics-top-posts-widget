@@ -10,8 +10,8 @@ Author URI: http://about.me/jtsternberg
 Donate link: http://j.ustin.co/rYL89n
 Requires at least: 3.0
 Tested up to: 3.3.1
-Stable tag: 1.3
-Version: 1.3
+Stable tag: 1.4
+Version: 1.4
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -27,14 +27,15 @@ Also includes a shortcode to display the top content in your posts and pages.
 
 = Shortcode with options supported: =
 
-`[google_top_content pageviews=5 number=10 showhome=no time=1-month]`
+`[google_top_content pageviews=5 number=10 showhome=no time=2628000 timeval=2]`
 
 = Shortcode attributes definitions: =
 
 * Pageviews: Show pages with at least __ number of page views
 * Number: Number of pages to show in the list
 * Showhome: Will remove home page from list: (usually "yoursite.com" is the highest viewed page)
-* Time: Selects how far back you would like analytics to pull from
+* Time: Selects how far back you would like analytics to pull from. needs to be in seconds. (1 hour - 3600, 1 day - 86400, 1 month - 2628000, 1 year - 31536000).
+* Time Value: time=2628000 timeval=2 like in the example above would be 2 months.
 
 Since 1.3:
 
@@ -73,6 +74,9 @@ If you run into a problem or have a question, contact me ([contact form](http://
 
 == Changelog ==
 
+= 1.4 =
+* Added more flexibilty to the time select dropdown. Now with options to select hours and days.
+
 = 1.3 =
 * Added more widget options to modify the list output. Added field to enter repeating elements in the titles to remove from the listings. Also, now limit or filter by post-type, by category, or by post/page ID.
 
@@ -87,6 +91,9 @@ If you run into a problem or have a question, contact me ([contact form](http://
 
 
 == Upgrade Notice ==
+
+= 1.4 =
+Added more flexibilty to the time select dropdown. Now with options to select hours and days.
 
 = 1.3 =
 Added more widget options to modify the list output. Added field to enter repeating elements in the titles to remove from the listings. Also, now limit or filter by post-type, by category, or by post/page ID.
