@@ -10,8 +10,8 @@ Author URI: http://about.me/jtsternberg
 Donate link: http://j.ustin.co/rYL89n
 Requires at least: 3.0
 Tested up to: 3.3.1
-Stable tag: 1.4
-Version: 1.4
+Stable tag: 1.4.1
+Version: 1.4.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -63,6 +63,11 @@ All of the widget options are exactly that.. optional. If you don't include them
 
 == Frequently Asked Questions ==
 
+= After Upgrading to 1.4, my widget stopped working =
+I updated the widget options for the date picker, and as a result, it broke any widgets that were saved with the old options. 1.4.1 solves that, but either way, re-saving the widget will correct the issue.
+
+If you were using the shortcode and it broke, you will need to switch to using the shortcode with the new format (described [here](http://wordpress.org/extend/plugins/google-analytics-top-posts-widget/))
+
 = ?? =
 If you run into a problem or have a question, contact me ([contact form](http://j.ustin.co/scbo43) or [@jtsternberg on twitter](http://j.ustin.co/wUfBD3)). I'll add them here.
 
@@ -73,6 +78,11 @@ If you run into a problem or have a question, contact me ([contact form](http://
 2. Widget display (in an ordered list).
 
 == Changelog ==
+
+= 1.4.1 =
+* I updated the widget options for the date picker, and as a result, it broke any widgets that were saved with the old options. 1.4.1 solves that, but either way, re-saving the widget will correct the issue.
+
+If you were using the shortcode and it broke, you will need to switch to using the shortcode with the new format (described [here](http://wordpress.org/extend/plugins/google-analytics-top-posts-widget/))
 
 = 1.4 =
 * Added more flexibilty to the time select dropdown. Now with options to select hours and days.
@@ -91,6 +101,11 @@ If you run into a problem or have a question, contact me ([contact form](http://
 
 
 == Upgrade Notice ==
+
+= 1.4.1 =
+I updated the widget options for the date picker, and as a result, it broke any widgets that were saved with the old options. 1.4.1 solves that, but either way, re-saving the widget will correct the issue.
+
+If you were using the shortcode and it broke, you will need to switch to using the shortcode with the new format (described [here](http://wordpress.org/extend/plugins/google-analytics-top-posts-widget/))
 
 = 1.4 =
 Added more flexibilty to the time select dropdown. Now with options to select hours and days.
