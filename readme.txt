@@ -51,6 +51,7 @@ All of the widget options are exactly that.. optional. If you don't include them
 
 * Plugin uses WordPress transients to cache the Google results so you're not running the update from Google every time. cache updates every 24 hours.
 * Developer Friendly. Many filters built in to allow you to filter the results to dispay how you want.  One example of that would be to remove your Site's title from the results. (now unnecessary, as the widget/shortcode has the option built in)
+** [Example using a filter to add view counts after the title](http://wordpress.org/support/topic/top-viewed-content-couple-of-tweeks-needed?replies=9#post-3816989)
 
 == Installation ==
 
