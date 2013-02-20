@@ -6,7 +6,7 @@ Plugin URI: http://j.ustin.co/yWTtmy
 Author: Jtsternberg
 Author URI: http://about.me/jtsternberg
 Donate link: http://j.ustin.co/rYL89n
-Version: 1.4.2
+Version: 1.4.3
 */
 
 require_once dirname( __FILE__ ) . '/class-tgm-plugin-activation.php';
@@ -207,7 +207,7 @@ class dsgnwrks_google_top_posts_widgets extends WP_Widget {
         $instance['showhome'] = absint( $new_instance['showhome'] );
         $instance['time'] = esc_attr( $new_instance['time'] );
         $instance['timeval'] = absint( $new_instance['timeval'] );
-        $instance['titleremove'] = esc_attr( $new_instance['titleremove'] );
+        $instance['titleremove'] = sanitize_text_field( $new_instance['titleremove'] );
         $instance['contentfilter'] = esc_attr( $new_instance['contentfilter'] );
         $instance['catlimit'] = esc_attr( $new_instance['catlimit'] );
         $instance['catfilter'] = esc_attr( $new_instance['catfilter'] );
@@ -376,12 +376,12 @@ function dsgnwrks_gtc_top_content_shortcode( $atts, $context ) {
               }
             }
 
-            $title = apply_filters( 'gtc_page_title', $page['children']['value'] );
+            $title = sanitize_text_field( apply_filters( 'gtc_page_title', $page['children']['value'] ) );
+
             if ( !empty( $atts['titleremove'] ) ) {
-              $removes = esc_attr( $atts['titleremove'] );
-              $removes = explode( ', ', $removes );
+              $removes = explode( ',', sanitize_text_field( $atts['titleremove'] ) );
               foreach ( $removes as $remove ) {
-                $title = str_replace( $remove, '', $title );
+                $title = str_ireplace( trim( $remove ), '', $title );
               }
             }
 
@@ -410,4 +410,3 @@ function dsgnwrks_gtc_top_content_shortcode( $atts, $context ) {
   return $list;
 
 }
-?>
