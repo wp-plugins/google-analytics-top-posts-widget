@@ -122,7 +122,7 @@ If you were using the shortcode and it broke, you will need to switch to using t
 
 == Upgrade Notice ==
 
-= 1.4.2 =
+= 1.4.3 =
 * Bug fix: Some entities would break the "remove site name" filter.
 
 = 1.4.2 =
