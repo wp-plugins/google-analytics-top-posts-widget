@@ -4,14 +4,14 @@ Google Analytics Top Content Widget
 Contributors: jtsternberg
 Plugin Name:  Google Analytics Top Content Widget
 Plugin URI: http://j.ustin.co/yWTtmy
-Tags: google analytics, google, top posts, top content, display rank, page rank, page views, widget, sidebar, sidebar widget, Google Analytics Dashboard, shortcode
+Tags: google analytics, google, top posts, top content, display rank, page rank, page views, widget, sidebar, sidebar widget, Google Analytics Dashboard, shortcode, site stats, statistics, stats
 Author: Jtsternberg
 Author URI: http://about.me/jtsternberg
 Donate link: http://j.ustin.co/rYL89n
 Requires at least: 3.0
 Tested up to: 3.5
-Stable tag: 1.4.2
-Version: 1.4.2
+Stable tag: 1.4.3
+Version: 1.4.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -93,6 +93,9 @@ If you run into a problem or have a question, contact me ([contact form](http://
 
 == Changelog ==
 
+= 1.4.3 =
+* Bug fix: Some entities would break the "remove site name" filter.
+
 = 1.4.2 =
 * Fixed the number value select for the "Select how far back you would like analytics to pull from:" selector.
 
@@ -118,6 +121,9 @@ If you were using the shortcode and it broke, you will need to switch to using t
 
 
 == Upgrade Notice ==
+
+= 1.4.2 =
+* Bug fix: Some entities would break the "remove site name" filter.
 
 = 1.4.2 =
 * Fixed the number value select for the "Select how far back you would like analytics to pull from:" selector.
