@@ -10,8 +10,8 @@ Author URI: http://about.me/jtsternberg
 Donate link: http://j.ustin.co/rYL89n
 Requires at least: 3.0
 Tested up to: 3.5
-Stable tag: 1.4.3
-Version: 1.4.3
+Stable tag: 1.4.4
+Version: 1.4.4
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -93,6 +93,9 @@ If you run into a problem or have a question, contact me ([contact form](http://
 
 == Changelog ==
 
+= 1.4.4 =
+* Enhancement: Allow html in list item output
+
 = 1.4.3 =
 * Bug fix: Some entities would break the "remove site name" filter.
 
@@ -122,7 +125,10 @@ If you were using the shortcode and it broke, you will need to switch to using t
 
 == Upgrade Notice ==
 
-= 1.4.2 =
+= 1.4.4 =
+* Enhancement: Allow html in list item output
+
+= 1.4.3 =
 * Bug fix: Some entities would break the "remove site name" filter.
 
 = 1.4.2 =

@@ -376,7 +376,7 @@ function dsgnwrks_gtc_top_content_shortcode( $atts, $context ) {
               }
             }
 
-            $title = sanitize_text_field( apply_filters( 'gtc_page_title', $page['children']['value'] ) );
+            $title = stripslashes( wp_filter_post_kses( apply_filters( 'gtc_page_title', $page['children']['value'] ) ) );
 
             if ( !empty( $atts['titleremove'] ) ) {
               $removes = explode( ',', sanitize_text_field( $atts['titleremove'] ) );
