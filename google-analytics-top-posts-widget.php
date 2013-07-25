@@ -6,7 +6,7 @@ Plugin URI: http://j.ustin.co/yWTtmy
 Author: Jtsternberg
 Author URI: http://about.me/jtsternberg
 Donate link: http://j.ustin.co/rYL89n
-Version: 1.4.3
+Version: 1.4.5
 */
 
 require_once dirname( __FILE__ ) . '/class-tgm-plugin-activation.php';
@@ -276,9 +276,9 @@ function dsgnwrks_gtc_top_content_shortcode( $atts, $context ) {
   if ( isset( $gad_auth_token ) && $gad_auth_token != '' && class_exists( 'GADWidgetData' ) ) {
 
       $trans = '';
-      $atts['update'] = true;
-      if ( !empty( $atts['update'] ) && !empty( $atts['default_trans'] ) ) delete_transient( 'dw-gtc-list' );
-      elseif ( !empty( $atts['default_trans'] ) ) {
+      // @Dev
+      // $atts['update'] = true;
+      if ( empty( $atts['update'] ) ) {
         $trans = get_transient( 'dw-gtc-list' );
         $transuse = "\n<!-- using transient -->\n";
       }
@@ -324,19 +324,30 @@ function dsgnwrks_gtc_top_content_shortcode( $atts, $context ) {
             $urlarray[] = $url;
 
             if ( $atts['contentfilter'] != 'allcontent' || $atts['catlimit'] != '' || $atts['catfilter'] != '' || $atts['postfilter'] != '' ) {
-
               $path = pathinfo( $url );
-              $post = null;
-              $content_types = get_post_types( array( 'public' => true ) );
-              foreach( $content_types as $type ) {
+              $query_var = strpos( $url, '?' );
+              $default_permalink = strpos( $path['filename'], '?p=' );
+              $url = ( $query_var !== false && false === $default_permalink )
+                ? substr( $url, 0, $query_var )
+                : $url;
+              $wppost = null;
 
-                if ( $type == 'attachment' ) continue;
-                if ( !empty( $post ) ) break;
-                $post = get_page_by_path( $path['filename'], OBJECT, $type );
+              if ( false !== $default_permalink ) {
+                $wppost = get_post( (int) str_replace( '?p=', '', $path['filename'] ) );
               }
+              if ( !$wppost && !empty( $url ) && trim( $url ) != '/' ) {
+                $content_types = get_post_types( array( 'public' => true ) );
+                foreach( $content_types as $type ) {
+                  if ( $type == 'attachment' )
+                    continue;
+                  if ( $wppost = get_page_by_path( $url, OBJECT, $type ) )
+                    break;
+                }
+              }
+
               if ( $atts['contentfilter'] != 'allcontent' ) {
-                if ( empty( $post ) ) continue;
-                if ( $post->post_type != $atts['contentfilter'] ) continue;
+                if ( empty( $wppost ) ) continue;
+                if ( $wppost->post_type != $atts['contentfilter'] ) continue;
               }
 
               if ( $atts['contentfilter'] == 'allcontent' || $atts['contentfilter'] == 'post' ) {
@@ -346,10 +357,10 @@ function dsgnwrks_gtc_top_content_shortcode( $atts, $context ) {
                   $catlimits = esc_attr( $atts['catlimit'] );
                   $catlimits = explode( ', ', $catlimits );
                   foreach ( $catlimits as $catlimit ) {
-                    // if ( is_user_logged_in() ) $list .= '<pre>'. htmlentities( print_r( $post->post_name, true ) ) .'</pre>';
-                    if ( in_category( $catlimit, $post ) ) $limit_array[] = $post->ID;
+                    // if ( is_user_logged_in() ) $list .= '<pre>'. htmlentities( print_r( $wppost->post_name, true ) ) .'</pre>';
+                    if ( in_category( $catlimit, $wppost ) ) $limit_array[] = $wppost->ID;
                   }
-                  if ( !in_array( $post->ID, $limit_array ) ) continue;
+                  if ( !in_array( $wppost->ID, $limit_array ) ) continue;
 
                 }
 
@@ -358,9 +369,9 @@ function dsgnwrks_gtc_top_content_shortcode( $atts, $context ) {
                   $catfilters = esc_attr( $atts['catfilter'] );
                   $catfilters = explode( ', ', $catfilters );
                   foreach ( $catfilters as $catfilter ) {
-                    if ( in_category( $catfilter, $post ) ) $filter_array[] = $post->ID;
+                    if ( in_category( $catfilter, $wppost ) ) $filter_array[] = $wppost->ID;
                   }
-                  if ( in_array( $post->ID, $filter_array ) ) continue;
+                  if ( in_array( $wppost->ID, $filter_array ) ) continue;
                 }
               }
 
@@ -369,14 +380,14 @@ function dsgnwrks_gtc_top_content_shortcode( $atts, $context ) {
                 $postfilters = esc_attr( $atts['postfilter'] );
                 $postfilters = explode( ', ', $postfilters );
                 foreach ( $postfilters as $postfilter ) {
-                  // if ( is_user_logged_in() ) $list .= '<pre>'. htmlentities( print_r( $post->post_name, true ) ) .'</pre>';
-                  if ( $postfilter == $post->ID ) $postfilter_array[] = $post->ID;
+                  // if ( is_user_logged_in() ) $list .= '<pre>'. htmlentities( print_r( $wppost->post_name, true ) ) .'</pre>';
+                  if ( $postfilter == $wppost->ID ) $postfilter_array[] = $wppost->ID;
                 }
-                if ( in_array( $post->ID, $postfilter_array ) ) continue;
+                if ( in_array( $wppost->ID, $postfilter_array ) ) continue;
               }
             }
 
-            $title = stripslashes( wp_filter_post_kses( apply_filters( 'gtc_page_title', $page['children']['value'] ) ) );
+            $title = stripslashes( wp_filter_post_kses( apply_filters( 'gtc_page_title', $page['children']['value'], $page, $wppost ) ) );
 
             if ( !empty( $atts['titleremove'] ) ) {
               $removes = explode( ',', sanitize_text_field( $atts['titleremove'] ) );
@@ -385,17 +396,18 @@ function dsgnwrks_gtc_top_content_shortcode( $atts, $context ) {
               }
             }
 
-            $list .= '<li><a href="' . $url . '">' . $title . '</a></li>';
+            $list .= apply_filters( 'gtc_list_item', '<li><a href="'. $url .'">' . $title . '</a></li>', $page, $wppost, $counter );
             $counter++;
             if ( $counter > $atts['number'] ) break;
           }
           $list .= '</ol>';
 
         }
-        if ( empty( $atts['update'] ) && !empty( $atts['default_trans'] ) )set_transient( 'dw-gtc-list', $list, 86400 );
+        $list = apply_filters( 'gtc_list_output', $list );
+        set_transient( 'dw-gtc-list', $list, 86400 );
         return $transuse . $list . $transuse;
       }
-      return $transuse . $trans . $transuse;
+      return $transuse . apply_filters( 'gtc_list_output', $trans ) . $transuse;
 
   } elseif ( isset( $gad_auth_token ) && $gad_auth_token != '' && !class_exists( 'GADWidgetData' ) ) {
       $list = dsgnwrks_gtc_widget_message_one();
