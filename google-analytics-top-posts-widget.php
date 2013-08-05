@@ -6,7 +6,7 @@ Plugin URI: http://j.ustin.co/yWTtmy
 Author: Jtsternberg
 Author URI: http://about.me/jtsternberg
 Donate link: http://j.ustin.co/rYL89n
-Version: 1.4.5
+Version: 1.4.6
 */
 
 require_once dirname( __FILE__ ) . '/class-tgm-plugin-activation.php';
@@ -340,7 +340,8 @@ function dsgnwrks_gtc_top_content_shortcode( $atts, $context ) {
                 foreach( $content_types as $type ) {
                   if ( $type == 'attachment' )
                     continue;
-                  if ( $wppost = get_page_by_path( $url, OBJECT, $type ) )
+                  $object_name = 'post' == $type ? @end( @array_filter( @explode( '/', $url ) ) ) : $url;
+                  if ( $wppost = get_page_by_path( $object_name, OBJECT, $type ) )
                     break;
                 }
               }
