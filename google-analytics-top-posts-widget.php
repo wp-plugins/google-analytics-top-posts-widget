@@ -340,7 +340,7 @@ function dsgnwrks_gtc_top_content_shortcode( $atts, $context ) {
                 foreach( $content_types as $type ) {
                   if ( $type == 'attachment' )
                     continue;
-                  $object_name = 'post' == $type ? @end( @array_filter( @explode( '/', $url ) ) ) : $url;
+                  $object_name = is_post_type_hierarchical( $type ) ? $url : @end( @array_filter( @explode( '/', $url ) ) );
                   if ( $wppost = get_page_by_path( $object_name, OBJECT, $type ) )
                     break;
                 }
