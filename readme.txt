@@ -10,8 +10,8 @@ Author URI: http://about.me/jtsternberg
 Donate link: http://j.ustin.co/rYL89n
 Requires at least: 3.0
 Tested up to: 3.6
-Stable tag: 1.4.5
-Version: 1.4.5
+Stable tag: 1.4.6
+Version: 1.4.6
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -93,6 +93,9 @@ If you run into a problem or have a question, contact me ([contact form](http://
 
 == Changelog ==
 
+= 1.4.6 =
+* Bug fix: Listings wouldn't show when using 'post' as the contentfilter.
+
 = 1.4.5 =
 * Enhancement: More output filters, and check for '?p=' permalinks
 
@@ -127,6 +130,9 @@ If you were using the shortcode and it broke, you will need to switch to using t
 
 
 == Upgrade Notice ==
+
+= 1.4.6 =
+* Bug fix: Listings wouldn't show when using 'post' as the contentfilter.
 
 = 1.4.5 =
 * Enhancement: More output filters, and check for '?p=' permalinks
