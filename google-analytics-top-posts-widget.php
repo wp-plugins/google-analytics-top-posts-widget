@@ -6,7 +6,7 @@ Plugin URI: http://j.ustin.co/yWTtmy
 Author: Jtsternberg
 Author URI: http://about.me/jtsternberg
 Donate link: http://j.ustin.co/rYL89n
-Version: 1.4.6
+Version: 1.4.7
 */
 
 require_once dirname( __FILE__ ) . '/class-tgm-plugin-activation.php';
@@ -267,7 +267,8 @@ function dsgnwrks_gtc_top_content_shortcode( $atts, $context ) {
     'contentfilter' => 'allcontent',
     'catlimit' => '',
     'catfilter' => '',
-    'postfilter' => ''
+    'postfilter' => '',
+    'keep_query_vars' => false,
   );
   $atts = shortcode_atts( $defaults, $atts );
   $atts = apply_filters( 'gtc_atts_filter', $atts );
@@ -316,20 +317,29 @@ function dsgnwrks_gtc_top_content_shortcode( $atts, $context ) {
           $counter = 1;
           foreach( $pages as $page ) {
             $url = $page['value'];
-            if ( $url == '/' && $atts['showhome'] != '0' ) {
+            // Url is index and we don't want the homepage, skip
+            if ( $url == '/' && $atts['showhome'] != '0' )
               continue;
-            }
+
+            // We need to check if there are duplicates with query vars
+            $path = pathinfo( $url );
+            $query_var = strpos( $url, '?' );
+            $default_permalink = strpos( $path['filename'], '?p=' );
+            // Strip the query var off the url (if not using default permalinks)
+            $url = ( ! $atts['keep_query_vars'] && false !== $query_var && false === $default_permalink )
+              ? substr( $url, 0, $query_var )
+              : $url;
+
+            // Allow modification of the URL
             $url = apply_filters( 'gtc_page_url', $url );
-            if ( in_array( $url, $urlarray ) ) continue;
+
+            // Url already exists? skip it
+            if ( in_array( $url, $urlarray ) )
+              continue;
+
             $urlarray[] = $url;
 
             if ( $atts['contentfilter'] != 'allcontent' || $atts['catlimit'] != '' || $atts['catfilter'] != '' || $atts['postfilter'] != '' ) {
-              $path = pathinfo( $url );
-              $query_var = strpos( $url, '?' );
-              $default_permalink = strpos( $path['filename'], '?p=' );
-              $url = ( $query_var !== false && false === $default_permalink )
-                ? substr( $url, 0, $query_var )
-                : $url;
               $wppost = null;
 
               if ( false !== $default_permalink ) {
@@ -340,7 +350,7 @@ function dsgnwrks_gtc_top_content_shortcode( $atts, $context ) {
                 foreach( $content_types as $type ) {
                   if ( $type == 'attachment' )
                     continue;
-                  $object_name = 'post' == $type ? @end( @array_filter( @explode( '/', $url ) ) ) : $url;
+                  $object_name = is_post_type_hierarchical( $type ) ? $url : @end( @array_filter( @explode( '/', $url ) ) );
                   if ( $wppost = get_page_by_path( $object_name, OBJECT, $type ) )
                     break;
                 }
