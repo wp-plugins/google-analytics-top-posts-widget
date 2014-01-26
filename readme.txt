@@ -6,12 +6,12 @@ Plugin Name:  Google Analytics Top Content Widget
 Plugin URI: http://j.ustin.co/yWTtmy
 Tags: google analytics, google, top posts, top content, display rank, page rank, page views, widget, sidebar, sidebar widget, Google Analytics Dashboard, shortcode, site stats, statistics, stats
 Author: Jtsternberg
-Author URI: http://about.me/jtsternberg
+Author URI: http://jtsternberg.com/about
 Donate link: http://j.ustin.co/rYL89n
 Requires at least: 3.0
 Tested up to: 3.8
-Stable tag: 1.4.8
-Version: 1.4.8
+Stable tag: 1.5.0
+Version: 1.5.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -25,9 +25,14 @@ Requires a Google Analytics account, and the plugin, ["Google Analytics Dashboar
 
 Also includes a shortcode to display the top content in your posts and pages.
 
-= Shortcode with options supported: =
+= Shortcodes with options supported: =
 
+* Companion shortcode to widget
 `[google_top_content pageviews=5 number=10 showhome=no time=2628000 timeval=2]`
+* Display a post's/page's number of views
+`[google_analytics_views]`
+* Conditional text where \*\*count\*\* will be replaced
+`[google_analytics_views]This page has received **count** views.[/google_analytics_views]`
 
 = Shortcode attributes definitions: =
 
@@ -93,8 +98,8 @@ If you run into a problem or have a question, contact me ([contact form](http://
 
 == Changelog ==
 
-= 1.4.8 =
-* Bug fix: Now there is a unique transient for each widget instance.
+= 1.5.0 =
+* Enhancement: New shortcode, `google_analytics_views` for displaying a view count on a single post/page.
 
 = 1.4.8 =
 * Bug fix: Now there is a unique transient for each widget instance.
@@ -139,6 +144,9 @@ If you were using the shortcode and it broke, you will need to switch to using t
 
 
 == Upgrade Notice ==
+
+= 1.5.0 =
+* Enhancement: New shortcode, `google_analytics_views` for displaying a view count on a single post/page.
 
 = 1.4.8 =
 * Bug fix: Now there is a unique transient for each widget instance.
