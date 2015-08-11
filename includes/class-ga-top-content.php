@@ -163,7 +163,7 @@ class GA_Top_Content {
 		return admin_url( 'admin.php?page=yst_ga_settings' );
 	}
 
-	public function top_content_shortcode( $atts, $context = 'shortcode', $number = 0 ) {
+	public function top_content_shortcode( $atts = array(), $context = 'shortcode', $number = 0 ) {
 		static $inline_style = false;
 		static $inline_style_done = false;
 
@@ -375,7 +375,7 @@ class GA_Top_Content {
 		return $transuse . $list . $transuse;
 	}
 
-	public function views_shortcode( $atts, $content ) {
+	public function views_shortcode( $atts = array(), $content = '' ) {
 
 		if ( ! $this->id() || ! class_exists( 'Yoast_Google_Analytics' ) ) {
 			return '';

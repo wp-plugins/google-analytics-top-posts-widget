@@ -1,5 +1,14 @@
 # Changelog for TGM Plugin Activation library
 
+## 2.5.2 (2015-07-15)
+* Hot Fix: fixes potential `Fatal error: Call to protected TGM_Plugin_Activation::__construct()` error and other compatibility issues when both TGMPA 2.5+ as well as TGMPA 2.3.6- would be loaded by different themes and plugins.
+
+Take note: We do **NOT** support 2.3.6 anymore and **_highly_** discourage its use. Any themes and plugins still using TGMPA 2.3.6 or less should upgrade as soon as possible. All the same, the end-user should not be confronted with white screens because of it, so this hot fix should prevent just that.
+
+## 2.5.1 (2015-07-13)
+
+* Hot Fix: fixes potential `Fatal error: Call to undefined method TGM_Utils::validate_bool()` errors caused by a conflict with the Soliloquy plugin.
+
 ## 2.5.0 (2015-07-03)
 
 This is a major update which brings some interesting new features and fixes tons of bugs. This version of TGMPA is brought to you by [Thomas Griffin] with graceful thanks to [Gary Jones] and our new core-team member [Juliette Reinders Folmer] for the majority of the changes.
